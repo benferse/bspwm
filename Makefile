@@ -6,7 +6,7 @@ CFLAGS   += -std=c99 -pedantic -Wall -Wextra -DJSMN_STRICT
 LDFLAGS  ?=
 LDLIBS    = $(LDFLAGS) -lm -lxcb -lxcb-util -lxcb-keysyms -lxcb-icccm -lxcb-ewmh -lxcb-randr -lxcb-xinerama -lxcb-shape
 
-PREFIX    ?= /usr/local
+PREFIX    ?= $(HOME)/.local
 BINPREFIX ?= $(PREFIX)/bin
 MANPREFIX ?= $(PREFIX)/share/man
 DOCPREFIX ?= $(PREFIX)/share/doc/bspwm
@@ -33,6 +33,13 @@ VPATH=src
 include Sourcedeps
 
 $(WM_OBJ) $(CLI_OBJ): Makefile
+
+deps:
+	sudo apt install libxcb-util-dev \
+		libxcb-icccm4-dev \
+		libxcb-ewmh-dev \
+		libxcb-keysyms1-dev \
+		libxcb-xtest0-dev
 
 bspwm: $(WM_OBJ)
 
