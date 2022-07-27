@@ -39,6 +39,9 @@ deps:
 		libxcb-icccm4-dev \
 		libxcb-ewmh-dev \
 		libxcb-keysyms1-dev \
+		libxcb-randr0-dev \
+		libxcb-shape0-dev \
+		libxcb-xinerama0-dev \
 		libxcb-xtest0-dev
 
 bspwm: $(WM_OBJ)
